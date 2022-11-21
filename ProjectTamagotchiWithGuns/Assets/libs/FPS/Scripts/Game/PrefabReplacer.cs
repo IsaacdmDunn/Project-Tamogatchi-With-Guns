@@ -1,18 +1,3 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
-namespace Unity.FPS.Game
-{
-    public class PrefabReplacer : MonoBehaviour
-    {
-        [System.Serializable]
-        public struct ReplacementDefinition
-        {
-            public GameObject SourcePrefab;
-            public GameObject TargetPrefab;
-        }
-
-        public bool SwitchOrder;
-        public List<ReplacementDefinition> Replacements = new List<ReplacementDefinition>();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a59637fabfb5cc352499cc0ef3811fd29e155ce08b2bf22dc68a0e472bf246c3
+size 471

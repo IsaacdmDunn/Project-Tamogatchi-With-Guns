@@ -1,36 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Inverter : Node
-{
-    protected List<Node> nodes = new List<Node>();
-    public Inverter(List<Node> nodes)
-    {
-        this.nodes = nodes;
-    }
-
-    public override NodeState Evaluate()
-    {
-        foreach (var node in nodes)
-        {
-            switch (node.Evaluate())
-            {
-                case NodeState.running:
-                    nodeState = NodeState.running;
-                    break;
-                case NodeState.success:
-                    nodeState = NodeState.failure;
-                    break;
-                case NodeState.failure:
-                    nodeState = NodeState.success;
-                    return nodeState;
-                    break;
-                default:
-                    break;
-            }
-        }
-        return nodeState;
-    }
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:21d6c586b9f9b9e57db0701c5475aec840b42282afec7645884620a6c5ff1d91
+size 924

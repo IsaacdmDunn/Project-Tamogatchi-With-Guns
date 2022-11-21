@@ -1,26 +1,3 @@
-﻿using Unity.FPS.AI;
-using Unity.FPS.Game;
-using UnityEngine;
-using UnityEngine.UI;
-
-namespace Unity.FPS.UI
-{
-    public class EnemyCounter : MonoBehaviour
-    {
-        [Header("Enemies")] [Tooltip("Text component for displaying enemy objective progress")]
-        public Text EnemiesText;
-
-        EnemyManager m_EnemyManager;
-
-        void Awake()
-        {
-            m_EnemyManager = FindObjectOfType<EnemyManager>();
-            DebugUtility.HandleErrorIfNullFindObject<EnemyManager, EnemyCounter>(m_EnemyManager, this);
-        }
-
-        void Update()
-        {
-            EnemiesText.text = m_EnemyManager.NumberOfEnemiesRemaining + "/" + m_EnemyManager.NumberOfEnemiesTotal;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e316ed371bc95a0bf73f2f757f863afb561b19c45b979b985d873a1a581dbfaf
+size 731

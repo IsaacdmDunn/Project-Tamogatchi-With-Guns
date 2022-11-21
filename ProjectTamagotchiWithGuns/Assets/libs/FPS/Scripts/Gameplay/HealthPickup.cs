@@ -1,22 +1,3 @@
-﻿using Unity.FPS.Game;
-using UnityEngine;
-
-namespace Unity.FPS.Gameplay
-{
-    public class HealthPickup : Pickup
-    {
-        [Header("Parameters")] [Tooltip("Amount of health to heal on pickup")]
-        public float HealAmount;
-
-        protected override void OnPicked(PlayerCharacterController player)
-        {
-            Health playerHealth = player.GetComponent<Health>();
-            if (playerHealth && playerHealth.CanPickup())
-            {
-                playerHealth.Heal(HealAmount);
-                PlayPickupFeedback();
-                Destroy(gameObject);
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:28e6ee1dab7307436b27d5b80a08c2de0b5b66772c6a29af50400922ce5e5007
+size 630

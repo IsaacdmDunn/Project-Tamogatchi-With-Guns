@@ -1,5 +1,3 @@
-~~~NOTICE~~~
-
-These objects were created using the ProBuilder tool. They aren't used throughout the scene since they slowdown the process of editing your Level. 
-
-If any adjustments are made to these objects, they won't affect the rest of the level.
+version https://git-lfs.github.com/spec/v1
+oid sha256:47a766aeaa772f9e7a2bca2fad8211a20bef89a14e9f82236b776cd5c85d0a62
+size 253

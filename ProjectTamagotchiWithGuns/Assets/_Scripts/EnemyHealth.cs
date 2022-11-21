@@ -1,31 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EnemyHealth : MonoBehaviour
-{
-
-    public float health = 100;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (health < 0)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Bullets")
-        {
-            health -= other.GetComponent<Projectile>().damage;
-            Destroy(other);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:de7478ff22d9775e3c1212bc22f38f082800a0200298313c29e4a9d23aa332d0
+size 638

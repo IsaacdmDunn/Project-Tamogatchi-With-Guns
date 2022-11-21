@@ -1,33 +1,3 @@
-﻿using Unity.FPS.Game;
-using Unity.FPS.Gameplay;
-using UnityEngine;
-using UnityEngine.UI;
-
-namespace Unity.FPS.UI
-{
-    public class StanceHUD : MonoBehaviour
-    {
-        [Tooltip("Image component for the stance sprites")]
-        public Image StanceImage;
-
-        [Tooltip("Sprite to display when standing")]
-        public Sprite StandingSprite;
-
-        [Tooltip("Sprite to display when crouching")]
-        public Sprite CrouchingSprite;
-
-        void Start()
-        {
-            PlayerCharacterController character = FindObjectOfType<PlayerCharacterController>();
-            DebugUtility.HandleErrorIfNullFindObject<PlayerCharacterController, StanceHUD>(character, this);
-            character.OnStanceChanged += OnStanceChanged;
-
-            OnStanceChanged(character.IsCrouching);
-        }
-
-        void OnStanceChanged(bool crouched)
-        {
-            StanceImage.sprite = crouched ? CrouchingSprite : StandingSprite;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e29081ccdfafa21bc50c5f8ad3ee374dba8a91b872001ce95bd949f1e5f9826
+size 988

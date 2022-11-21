@@ -1,23 +1,3 @@
-using Unity.FPS.UI;
-using UnityEditor;
-using UnityEngine;
-
-namespace Unity.FPS.EditorExt
-{
-    // The Editor for the UITable component to add an Update button
-
-    [CustomEditor(typeof(UITable), true)]
-    public class UITableEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            UITable myTarget = (UITable)target;
-            DrawDefaultInspector();
-
-            if (GUILayout.Button("Update"))
-            {
-                myTarget.UpdateTable(null);
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:126fb98c4500a4ed62d97b2512ea3d6f4f74b39e055631513f9e17a760558da2
+size 546

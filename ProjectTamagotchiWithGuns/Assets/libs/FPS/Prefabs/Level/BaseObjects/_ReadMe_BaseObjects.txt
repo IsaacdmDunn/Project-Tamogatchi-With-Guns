@@ -1,9 +1,3 @@
-~~~NOTICE~~~
-
-The BaseObjects folder contains prefabs that were created from objects within the RootObjects folder. 
-
-~~~WARNING~~~
-
-Making any adjustments to objects found in the BaseObjects folder will adjust every instance of that object throughout the FPS project. This includes any permutation that exists as a different prefab in the assets folder and within your scene.
-
-If you want to remodel the BaseObjects prefabs, we recommend duplicating the BaseObjects folder, renaming the assets within it, and making your changes those duplicates.
+version https://git-lfs.github.com/spec/v1
+oid sha256:fbe575c26115cd5eb06a0de2cf90d728a8fa7b3704a0b3fd71e85ce391f73da6
+size 555

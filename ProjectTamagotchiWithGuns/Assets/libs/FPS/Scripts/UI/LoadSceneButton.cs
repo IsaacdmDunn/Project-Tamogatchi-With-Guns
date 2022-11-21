@@ -1,26 +1,3 @@
-﻿using Unity.FPS.Game;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
-
-namespace Unity.FPS.UI
-{
-    public class LoadSceneButton : MonoBehaviour
-    {
-        public string SceneName = "";
-
-        void Update()
-        {
-            if (EventSystem.current.currentSelectedGameObject == gameObject
-                && Input.GetButtonDown(GameConstants.k_ButtonNameSubmit))
-            {
-                LoadTargetScene();
-            }
-        }
-
-        public void LoadTargetScene()
-        {
-            SceneManager.LoadScene(SceneName);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8853ed619ea750dd9b159e412b5f46d7d3cad3a582d2dd5f135f5fce07c893f9
+size 624

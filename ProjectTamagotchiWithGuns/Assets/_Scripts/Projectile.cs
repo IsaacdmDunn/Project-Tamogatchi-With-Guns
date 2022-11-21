@@ -1,28 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Projectile : MonoBehaviour
-{
-    public float bulletLifeTime;
-
-    public float damage;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        bulletLifeTime -= Time.deltaTime;
-        if (bulletLifeTime < 0)
-        {
-            Destroy(this.gameObject);
-        }
-        GetComponent<Rigidbody>().velocity = transform.forward * 50;
-    }
-
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:fd4cbeff51d1ad353587fccacb72e532588d9c1bfc9b0815de8e31c95ddba448
+size 575

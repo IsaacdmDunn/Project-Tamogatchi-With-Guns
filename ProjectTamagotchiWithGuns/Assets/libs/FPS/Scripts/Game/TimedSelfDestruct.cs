@@ -1,24 +1,3 @@
-﻿using UnityEngine;
-
-namespace Unity.FPS.Game
-{
-    public class TimedSelfDestruct : MonoBehaviour
-    {
-        public float LifeTime = 1f;
-
-        float m_SpawnTime;
-
-        void Awake()
-        {
-            m_SpawnTime = Time.time;
-        }
-
-        void Update()
-        {
-            if (Time.time > m_SpawnTime + LifeTime)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:564f85bc074a645dfea386870d2a6d3e723ab88ec41c14d82a1e52cd2d08c1bc
+size 440

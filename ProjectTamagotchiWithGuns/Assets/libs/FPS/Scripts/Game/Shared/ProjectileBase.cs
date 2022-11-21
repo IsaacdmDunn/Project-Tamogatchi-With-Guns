@@ -1,27 +1,3 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
-
-namespace Unity.FPS.Game
-{
-    public abstract class ProjectileBase : MonoBehaviour
-    {
-        public GameObject Owner { get; private set; }
-        public Vector3 InitialPosition { get; private set; }
-        public Vector3 InitialDirection { get; private set; }
-        public Vector3 InheritedMuzzleVelocity { get; private set; }
-        public float InitialCharge { get; private set; }
-
-        public UnityAction OnShoot;
-
-        public void Shoot(WeaponController controller)
-        {
-            Owner = controller.Owner;
-            InitialPosition = transform.position;
-            InitialDirection = transform.forward;
-            InheritedMuzzleVelocity = controller.MuzzleWorldVelocity;
-            InitialCharge = controller.CurrentCharge;
-
-            OnShoot?.Invoke();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e4824467cd11264f4ea744cb321078bed8cd283d76dc06e4a52ead83e0eb6a9b
+size 882

@@ -1,36 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-
-public class WalkNode : Node
-{
-    Transform target;
-    NavMeshAgent agent;
-
-
-    public WalkNode(NavMeshAgent _agent, Transform _target)
-    {
-        agent = _agent;
-        target = _target;
-    }
-
-    public override NodeState Evaluate()
-    {
-        //walk to target 
-        agent.SetDestination(target.position);
-        //if at target return sucess
-        if (agent.remainingDistance < 0.3)
-        {
-            return NodeState.success;
-            
-        }
-        return NodeState.running;
-        
-    }
-
-    public void SetTarget(Transform _target)
-    {
-        target = _target;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f37aeb9461b3bc4086756e0edd024b83baacb756735068ae3358371f8674fa00
+size 746

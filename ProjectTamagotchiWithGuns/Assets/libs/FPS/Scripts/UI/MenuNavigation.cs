@@ -1,32 +1,3 @@
-﻿using Unity.FPS.Game;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
-
-namespace Unity.FPS.UI
-{
-    public class MenuNavigation : MonoBehaviour
-    {
-        public Selectable DefaultSelection;
-
-        void Start()
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            EventSystem.current.SetSelectedGameObject(null);
-        }
-
-        void LateUpdate()
-        {
-            if (EventSystem.current.currentSelectedGameObject == null)
-            {
-                if (Input.GetButtonDown(GameConstants.k_ButtonNameSubmit)
-                    || Input.GetAxisRaw(GameConstants.k_AxisNameHorizontal) != 0
-                    || Input.GetAxisRaw(GameConstants.k_AxisNameVertical) != 0)
-                {
-                    EventSystem.current.SetSelectedGameObject(DefaultSelection.gameObject);
-                }
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:32c64162ddcc7c0ee351857316af5ff568fda7f384e092329206354578088a9f
+size 959

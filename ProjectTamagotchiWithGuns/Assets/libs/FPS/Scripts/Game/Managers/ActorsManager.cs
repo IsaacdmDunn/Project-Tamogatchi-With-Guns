@@ -1,18 +1,3 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
-namespace Unity.FPS.Game
-{
-    public class ActorsManager : MonoBehaviour
-    {
-        public List<Actor> Actors { get; private set; }
-        public GameObject Player { get; private set; }
-
-        public void SetPlayer(GameObject player) => Player = player;
-
-        void Awake()
-        {
-            Actors = new List<Actor>();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:52065b33b9c8b508ddf71c29215e4d19326f66dbd2cfe7915de542f22dd14e62
+size 426

@@ -1,18 +1,3 @@
-﻿using UnityEngine;
-
-namespace Unity.FPS.AI
-{
-    // Component used to override values on start from the NavmeshAgent component in order to change
-    // how the agent  is moving
-    public class NavigationModule : MonoBehaviour
-    {
-        [Header("Parameters")] [Tooltip("The maximum speed at which the enemy is moving (in world units per second).")]
-        public float MoveSpeed = 0f;
-
-        [Tooltip("The maximum speed at which the enemy is rotating (degrees per second).")]
-        public float AngularSpeed = 0f;
-
-        [Tooltip("The acceleration to reach the maximum speed (in world units per second squared).")]
-        public float Acceleration = 0f;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:810ce6a875ed724a83b4105013c6f01b63f0501f27474857bc052ccaef98809d
+size 694

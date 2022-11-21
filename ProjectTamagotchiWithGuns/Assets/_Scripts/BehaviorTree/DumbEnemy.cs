@@ -1,29 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-
-public class DumbEnemy : MonoBehaviour
-{
-
-    public WalkNode walkNode= null;
-    public Node topNode = null;
-    [SerializeField] NavMeshAgent agent;
-    [SerializeField] GameObject targetCharacter;
-    // Start is called before the first frame update
-    void Start()
-    {
-        ConstructBT();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        topNode.Evaluate();
-    }
-    void ConstructBT()
-    {
-        walkNode = new WalkNode(agent, targetCharacter.transform); //targets player for now
-        topNode = new Selector(new List<Node> { walkNode });
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f08213bb15de92845a7e5fb4a647a5a6e24e8d58998bd769a97a893e5421edd3
+size 729

@@ -1,34 +1,3 @@
-﻿using Unity.FPS.Game;
-using UnityEngine;
-
-namespace Unity.FPS.Gameplay
-{
-    public class AmmoPickup : Pickup
-    {
-        [Tooltip("Weapon those bullets are for")]
-        public WeaponController Weapon;
-
-        [Tooltip("Number of bullets the player gets")]
-        public int BulletCount = 30;
-
-        protected override void OnPicked(PlayerCharacterController byPlayer)
-        {
-            PlayerWeaponsManager playerWeaponsManager = byPlayer.GetComponent<PlayerWeaponsManager>();
-            if (playerWeaponsManager)
-            {
-                WeaponController weapon = playerWeaponsManager.HasWeapon(Weapon);
-                if (weapon != null)
-                {
-                    weapon.AddCarriablePhysicalBullets(BulletCount);
-
-                    AmmoPickupEvent evt = Events.AmmoPickupEvent;
-                    evt.Weapon = weapon;
-                    EventManager.Broadcast(evt);
-
-                    PlayPickupFeedback();
-                    Destroy(gameObject);
-                }
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6274fc326178533db22990566624dcbd86d39a429e310bec341ca63ba0440b05
+size 1075
