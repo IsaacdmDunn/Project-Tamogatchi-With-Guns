@@ -22,6 +22,8 @@ public class GunController : MonoBehaviour
     public Transform BulletOrigin;
     public Camera camera;
 
+    public Animator gunAnimations;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,13 +59,25 @@ public class GunController : MonoBehaviour
         }
         else
         {
+            gunAnimations.SetBool("Reloading", false);
+            
+        }
+
+        if (magSize== bulletsLeft && state == GunState.reloading)
+        {
             state = GunState.none;
+        }
+
+        if (Random.Range(0,1000) == 1)
+        {
+            gunAnimations.SetTrigger("Idle2");
         }
     }
 
     void Reload()
     {
         state = GunState.reloading;
+        gunAnimations.SetBool("Reloading", true);
         reloadTimer = reloadTime;
 
         int bulletsMissing = magSize - bulletsLeft;
