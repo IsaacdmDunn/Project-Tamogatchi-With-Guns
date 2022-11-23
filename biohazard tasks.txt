@@ -1,0 +1,33 @@
+BioHazard plan
+
+Ranged Enemies
+-uses projectile gun system - done
+
+-needs new AI to handle extra tasks
+
+Melee Enemies 
+-Attacks
+
+Player
+-Health
+-knockback (player and enemy)
+
+Special Guns
+Grapple hook
+
+Guns
+-needs shoot animation+transition
+-needs behaviours based on condition
+-reload types i.e. auto shotty from cs
+
+Bullets
+-special types (explosive, slime, idk)
+-other types (grapple)
+
+Tamogatchi Playpen
+-each gun need seperate behaviours
+-food + feeding
+-stats change system
+-play (idk fetch)
+
+
