@@ -36,7 +36,7 @@ public class GunController : MonoBehaviour
         timeBetweenShot += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Mouse0) && bulletsLeft == 0 && totalBullets > 0 && bulletsLeft < magSize)
         {
-            Reload();
+            StartReload();
         }
         if (Input.GetKey(KeyCode.Mouse0) && timeBetweenShot>fireRate && bulletsLeft > 0 && state==GunState.none)
         {
@@ -50,22 +50,23 @@ public class GunController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && state != GunState.reloading && totalBullets > 0 && bulletsLeft < magSize)
         {
-            Reload();
+            StartReload();
         }
 
         if (reloadTimer > 0)
         {
             reloadTimer -= Time.deltaTime;
         }
-        else
+        else if (state == GunState.reloading)
         {
             gunAnimations.SetBool("Reloading", false);
-            
+            Reload();
         }
 
         if (magSize== bulletsLeft && state == GunState.reloading)
         {
-            state = GunState.none;
+            
+            
         }
 
         if (Random.Range(0,1000) == 1)
@@ -74,12 +75,17 @@ public class GunController : MonoBehaviour
         }
     }
 
-    void Reload()
+    void StartReload()
     {
         state = GunState.reloading;
         gunAnimations.SetBool("Reloading", true);
         reloadTimer = reloadTime;
+    }
 
+    void Reload()
+    {
+        
+        state = GunState.none;
         int bulletsMissing = magSize - bulletsLeft;
         bulletsLeft = magSize;
         totalBullets -= bulletsMissing;
