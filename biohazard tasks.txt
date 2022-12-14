@@ -3,7 +3,7 @@ BioHazard plan
 Ranged Enemies
 -uses projectile gun system - done
 
--needs new AI to handle extra tasks
+-needs new AI to handle extra tasks -done
 
 Melee Enemies 
 -Attacks

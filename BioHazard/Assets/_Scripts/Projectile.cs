@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        GetComponent<Rigidbody>().velocity = transform.forward * 50;
+        GetComponent<Rigidbody>().velocity = transform.forward * 25;
     }
 
 

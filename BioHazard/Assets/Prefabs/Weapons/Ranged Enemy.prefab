@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9127481777872033860}
   - component: {fileID: 9127481777872033851}
-  - component: {fileID: 9127481777872033850}
   - component: {fileID: 9127481777872033849}
+  - component: {fileID: 6705761010421801503}
   - component: {fileID: 9127481777872033848}
   - component: {fileID: 9127481777872033855}
   - component: {fileID: 9127481777872033854}
@@ -44,20 +44,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9127481777872033853}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &9127481777872033850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9127481777872033853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc24492612849c4c8b183a9955ec5ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 9127481777872033855}
-  targetCharacter: {fileID: 0}
 --- !u!23 &9127481777872033849
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -99,6 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6705761010421801503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127481777872033853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e75b8c266df75146a50608b154c6f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 9127481777872033855}
+  targetCharacter: {fileID: 0}
+  stoppingDistance: 20
 --- !u!136 &9127481777872033848
 CapsuleCollider:
   m_ObjectHideFlags: 0

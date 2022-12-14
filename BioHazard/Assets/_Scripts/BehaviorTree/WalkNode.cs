@@ -7,12 +7,14 @@ public class WalkNode : Node
 {
     Transform target;
     NavMeshAgent agent;
+    float stoppingDistance = 0f;
 
 
-    public WalkNode(NavMeshAgent _agent, Transform _target)
+    public WalkNode(NavMeshAgent _agent, Transform _target, float _stoppingDistance)
     {
         agent = _agent;
         target = _target;
+        stoppingDistance = _stoppingDistance;
     }
 
     public override NodeState Evaluate()
@@ -20,12 +22,12 @@ public class WalkNode : Node
         //walk to target 
         agent.SetDestination(target.position);
         //if at target return sucess
-        if (agent.remainingDistance < 0.3)
+        if (agent.remainingDistance < stoppingDistance)
         {
-            return NodeState.success;
+            return NodeState.failure;
             
         }
-        return NodeState.running;
+        return NodeState.success;
         
     }
 

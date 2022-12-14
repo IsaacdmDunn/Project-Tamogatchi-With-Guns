@@ -71,4 +71,6 @@ public class CharacterMovement : MonoBehaviour
             velocity.y = -2f;
         }
     }
+
+    
 }

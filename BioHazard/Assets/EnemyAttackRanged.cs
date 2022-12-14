@@ -8,7 +8,7 @@ public class EnemyAttackRanged : MonoBehaviour
     {
         none, shooting, reloading
     }
-
+    public bool fireMode = false;
     public float damage, fireRate, spread, reloadTime;
     public int magSize, bulletsPerTap, bulletsLeft, totalBullets;
     public bool autoFire;
@@ -30,7 +30,11 @@ public class EnemyAttackRanged : MonoBehaviour
         }
         if (timeBetweenShot > fireRate)
         {
-            Shoot();
+            if (fireMode)
+            {
+                Shoot();
+                fireMode = false;
+            }
         }
         
         if (reloadTimer > 0)
@@ -49,9 +53,9 @@ public class EnemyAttackRanged : MonoBehaviour
         float spreadY = Random.Range(-spread, spread);
 
 
-        Vector3 direction = new Vector3(spreadX, spreadY, 0);
-        Quaternion tempRotation = BulletOrigin.transform.rotation;
-        BulletOrigin.transform.Rotate(spreadX, spreadY, 0);
+        //Vector3 direction = new Vector3(spreadX, spreadY, 0);
+        //Quaternion tempRotation = BulletOrigin.transform.rotation;
+        //BulletOrigin.transform.Rotate(spreadX, spreadY, 0);
 
         state = GunState.shooting;
         Instantiate(Projectile, BulletOrigin.position, BulletOrigin.rotation);
@@ -59,7 +63,7 @@ public class EnemyAttackRanged : MonoBehaviour
         bulletsLeft -= bulletsPerTap;
 
 
-        BulletOrigin.transform.rotation = tempRotation;
+        //BulletOrigin.transform.rotation = tempRotation;
 
     }
 
