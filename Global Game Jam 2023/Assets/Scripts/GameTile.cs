@@ -11,9 +11,30 @@ public class GameTile : MonoBehaviour
     [SerializeField] public GameObject cursor;
     [SerializeField] public GameObject BuildingSlot;
     [SerializeField] public GameObject EffectSlot;
+    public List<Resource> resources = new List<Resource>();
 
     private void Start()
     {
+        int randomResource = Random.Range(0, 3);
+        resources.Add(new Resource());
+        
+        resources[0].resourceTypes = (Resource.ResourceTypes)TileType;
+        switch (randomResource)
+        {
+            case 0:
+                resources[0].resourceName = "None";
+                break;
+            case 1:
+                resources[0].resourceName = "Nitrogen";
+                break;
+            case 2:
+                resources[0].resourceName = "Phosphorus";
+                break;
+            case 3:
+                resources[0].resourceName = "Potassium";
+                break;
+        }
+
         mapX = Mathf.RoundToInt(gameObject.transform.position.x);
         mapY = Mathf.RoundToInt(gameObject.transform.position.y);
 
@@ -23,7 +44,8 @@ public class GameTile : MonoBehaviour
                 tileName = "Dirt";
                 break;
             case 1:
-                tileName = "Sandy Loam";
+                tileName = "Sandy Loam"; //sandy loam who is she
+                resources[0].amount = Random.Range(0, 500);
                 break;
         }
     }

@@ -9,6 +9,7 @@ public class TileDescription : MonoBehaviour
     [SerializeField] GameObject cursor;
     [SerializeField] Text TileTypeTxt;
     [SerializeField] Text PositionTxt;
+    [SerializeField] Text ResourcesTxt;
 
 
     public bool onUpdate = false;
@@ -32,7 +33,17 @@ public class TileDescription : MonoBehaviour
             id = (y * map.mapY) + x;
             tempTile = map.MapTiles[id].GetComponent<GameTile>();
             TileTypeTxt.text = tempTile.tileName;
-            //TileTypeTxt.text = tempTile.name;
+            Debug.Log(tempTile.resources[0].resourceName);
+            ResourcesTxt.text = "Resources: "+ map.MapTiles[id].GetComponent<GameTile>().resources[0].amount + " " + map.MapTiles[id].GetComponent<GameTile>().resources[0].resourceName;
+            if (map.MapTiles[id].GetComponent<GameTile>().resources[0].amount == 0 || map.MapTiles[id].GetComponent<GameTile>().resources[0].resourceName == "None")
+            {
+                ResourcesTxt.text = "Resources: None";
+            }
+            else
+            {
+                ResourcesTxt.text = "Resources: " + map.MapTiles[id].GetComponent<GameTile>().resources[0].amount + " " + map.MapTiles[id].GetComponent<GameTile>().resources[0].resourceName;
+            }
+
             PositionTxt.text = $"Position: {x}, {y}";
         }
     }
