@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject SelectedBuilding;
+    [SerializeField] GameObject buildingManager;
+    [SerializeField] MapSystem map;
+
+
+    public void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            int y = Mathf.RoundToInt(transform.position.x);
+            int x = Mathf.RoundToInt(transform.position.y);
+            int id = (y * map.mapY) + x;
+            if (map.MapTiles[id].GetComponent<GameTile>().BuildingSlot == null)
+            {
+                GameObject newBuidling = Instantiate(SelectedBuilding, new Vector3(y, x, 0), Quaternion.identity, buildingManager.transform);
+                newBuidling.name = $"{SelectedBuilding.name}: X{x}Y{y}";
+
+                map.MapTiles[id].GetComponent<GameTile>().BuildingSlot = newBuidling;
+            }
+
+           
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

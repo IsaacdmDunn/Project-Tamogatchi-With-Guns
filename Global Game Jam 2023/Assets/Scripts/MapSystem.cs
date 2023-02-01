@@ -8,10 +8,15 @@ public class MapSystem : MonoBehaviour
     public IDictionary<int, GameObject> BuildingTiles = new Dictionary<int, GameObject>();
     public IDictionary<int, GameObject> EffectTiles = new Dictionary<int, GameObject>();
     [SerializeField] List<Sprite> tileSprites;
-    [SerializeField] int mapX = 20;
-    [SerializeField] int mapY = 20;
+    [SerializeField] public int mapX = 20;
+    [SerializeField] public int mapY = 20;
+    [SerializeField] public int maxHeight = 35;
     public GameObject prefabTile;
     GameObject MapTile;
+
+
+    [SerializeField] GameObject cursorObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +33,9 @@ public class MapSystem : MonoBehaviour
                 MapTiles.Add(id, transform.GetChild(id).gameObject);
                 BuildingTiles.Add(id, transform.GetChild(id).gameObject);
                 MapTiles[id].GetComponent<GameTile>().TileType = typeSelector;
+                MapTiles[id].GetComponent<GameTile>().cursor = cursorObject;
                 MapTiles[id].GetComponent<SpriteRenderer>().sprite = tileSprites[typeSelector];
-
-                Debug.Log(BuildingTiles[id]);
+                MapTiles[id].name = $"MapX{x}Y{y}";
                 id++;
             }
         }
