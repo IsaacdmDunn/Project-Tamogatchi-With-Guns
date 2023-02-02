@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class TileDescription : MonoBehaviour
 {
     [SerializeField] MapSystem map;
-    [SerializeField] GameObject cursor;
     [SerializeField] Text TileTypeTxt;
     [SerializeField] Text PositionTxt;
     [SerializeField] Text ResourcesTxt;
@@ -33,7 +32,6 @@ public class TileDescription : MonoBehaviour
             id = (y * map.mapY) + x;
             tempTile = map.MapTiles[id].GetComponent<GameTile>();
             TileTypeTxt.text = tempTile.tileName;
-            Debug.Log(tempTile.resources[0].resourceName);
             ResourcesTxt.text = "Resources: "+ map.MapTiles[id].GetComponent<GameTile>().resources[0].amount + " " + map.MapTiles[id].GetComponent<GameTile>().resources[0].resourceName;
             if (map.MapTiles[id].GetComponent<GameTile>().resources[0].amount == 0 || map.MapTiles[id].GetComponent<GameTile>().resources[0].resourceName == "None")
             {

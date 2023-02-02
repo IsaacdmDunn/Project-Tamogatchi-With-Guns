@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BuildingSystem : MonoBehaviour
 {
-    public GameObject SelectedBuilding;
+    [SerializeField] public GameObject SelectedBuilding;
+    [SerializeField] List<GameObject> buildingTypes = new List<GameObject>();
+    [SerializeField] PlayerController player;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +17,11 @@ public class BuildingSystem : MonoBehaviour
     void Update()
     {
         
+    }
+
+
+    public void selectBuilding(int id)
+    {
+        SelectedBuilding = buildingTypes[id];
     }
 }

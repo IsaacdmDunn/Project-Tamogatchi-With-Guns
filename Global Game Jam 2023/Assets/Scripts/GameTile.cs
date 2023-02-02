@@ -12,6 +12,7 @@ public class GameTile : MonoBehaviour
     [SerializeField] public GameObject BuildingSlot;
     [SerializeField] public GameObject EffectSlot;
     public List<Resource> resources = new List<Resource>();
+    public bool allowBuilding = true;
 
     private void Start()
     {
@@ -54,6 +55,12 @@ public class GameTile : MonoBehaviour
     {
         cursor.transform.position = new Vector3(mapX, mapY, 1);
         cursor.GetComponent<TileDescription>().onUpdate = true;
+        allowBuilding = true;
+    }
+
+    public void OnMouseExit()
+    {
+        allowBuilding = false;
     }
 
 }
