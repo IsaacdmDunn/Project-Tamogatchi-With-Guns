@@ -31,5 +31,6 @@ public class BuildingSystem : MonoBehaviour
     {
         SelectedBuilding = buildingTypes[id];
         ActiveRule = Rules[id];
+        ActiveRule.Rule();
     }
 }

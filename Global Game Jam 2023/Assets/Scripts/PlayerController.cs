@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
                     newBuidling.name = $"{buildingSystem.SelectedBuilding.name}";/*: X{x}Y{y}*/
 
                     map.MapTiles[id].GetComponent<GameTile>().BuildingSlot = newBuidling;
+                    buildingSystem.ActiveRule.Rule();
                 }
                 Debug.Log("allowed");
                 placementTileAllowed = false;
@@ -65,10 +66,23 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.Log("fuck you");
+                Debug.Log("fuck you Baltimore");
             }
-            
-
+           
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (buildingSystem.ActiveRule.rotatable)
+                {
+                    if (buildingSystem.ActiveRule.rotation < 4)
+                    {
+                        buildingSystem.ActiveRule.rotation++;
+                    }
+                    else
+                    {
+                        buildingSystem.ActiveRule.rotation = 0;
+                    }
+                }
+            }
            
         }
     }

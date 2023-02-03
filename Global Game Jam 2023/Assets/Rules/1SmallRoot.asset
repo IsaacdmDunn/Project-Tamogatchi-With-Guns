@@ -15,6 +15,8 @@ MonoBehaviour:
   description: Must be placed near a seed or roots
   allowedTileTypes: 00000000
   allTypesAllowed: 1
-  tilesAllowed: 
+  tilesAllowed: 67010000670100006701000067010000670100006701000067010000
   allTilesAllowed: 0
+  rotatable: 0
+  rotation: 1
   map: {fileID: 0}
