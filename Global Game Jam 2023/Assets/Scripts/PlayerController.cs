@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     
     [SerializeField] public GameObject buildingManager;
-    [SerializeField] MapSystem map;
+    [SerializeField] public MapSystem map;
     [SerializeField] BuildingSystem buildingSystem;
     bool placementTileAllowed = false;
     bool placementTileTypeAllowed = false;
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
                 if (map.MapTiles[id].GetComponent<GameTile>().BuildingSlot == null && map.MapTiles[id].GetComponent<GameTile>().allowBuilding == true)
                 {
                     GameObject newBuidling = Instantiate(buildingSystem.SelectedBuilding, new Vector3(y, x, 0), Quaternion.identity, buildingManager.transform);
-                    newBuidling.name = $"{buildingSystem.SelectedBuilding.name}: X{x}Y{y}";
+                    newBuidling.name = $"{buildingSystem.SelectedBuilding.name}";/*: X{x}Y{y}*/
 
                     map.MapTiles[id].GetComponent<GameTile>().BuildingSlot = newBuidling;
                 }

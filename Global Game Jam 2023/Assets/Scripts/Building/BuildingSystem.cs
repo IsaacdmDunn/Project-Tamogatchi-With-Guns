@@ -12,8 +12,9 @@ public class BuildingSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (SeedPlacement rule in Rules)
+        foreach (BuildingRule rule in Rules)
         {
+            rule.map = player.map;
             rule.Rule();
         }
        //    Rules = Resources.LoadAll<BuildingRule>("Assets/Rules");
@@ -30,6 +31,5 @@ public class BuildingSystem : MonoBehaviour
     {
         SelectedBuilding = buildingTypes[id];
         ActiveRule = Rules[id];
-        Debug.Log(ActiveRule.tilesAllowed[0]);
     }
 }

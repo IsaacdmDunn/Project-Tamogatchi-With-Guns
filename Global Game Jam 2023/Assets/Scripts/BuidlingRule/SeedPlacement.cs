@@ -7,7 +7,7 @@ public class SeedPlacement : BuildingRule
 {
     
     // Start is called before the first frame update
-    public void Rule()
+    public override void Rule()
     {
         allTypesAllowed = true;
         int mapID = 19;
@@ -16,13 +16,13 @@ public class SeedPlacement : BuildingRule
         {
             for (int x = 19; x > 16; x--)
             {
-                Debug.Log(mapID);
                 tilesAllowed.Add((y * map.mapY) + x); //stores map id in tiles allowed#
                 id++;
                 mapID--;
             }
             mapID += 20;
         }
+
     }
 
     

@@ -11,6 +11,8 @@ public class BuildingRule : ScriptableObject
     [SerializeField] public List<int> tilesAllowed = new List<int>();
     [SerializeField] public bool allTilesAllowed = false;
 
-    [SerializeField] protected MapSystem map;
+    [SerializeField] public MapSystem map;
+
+    public virtual void Rule() { }
     
 }

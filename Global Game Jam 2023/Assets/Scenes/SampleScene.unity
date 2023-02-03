@@ -1262,12 +1262,13 @@ MonoBehaviour:
   SelectedBuilding: {fileID: 0}
   buildingTypes:
   - {fileID: 8120459648414782839, guid: 72f4e0f59059ad74c85e597ca475cb17, type: 3}
-  - {fileID: 8120459648414782839, guid: 36ac918329798534bb9b80a4635342fa, type: 3}
+  - {fileID: 8120459648414782839, guid: 0672aadbaa9f1e64ab3436344249572b, type: 3}
   player: {fileID: 430620748}
   ActiveRule: {fileID: 11400000, guid: 650732418e8347e4396820a479e8d3ec, type: 2}
   Rules:
   - {fileID: 11400000, guid: b117a87e5d492be42ad958ec85dd8e99, type: 2}
   - {fileID: 11400000, guid: 650732418e8347e4396820a479e8d3ec, type: 2}
+  - {fileID: 11400000, guid: 0351a0b61e7e61946a8202b7cf2e9251, type: 2}
 --- !u!1 &1028934506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,7 +1339,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Small Root
 --- !u!222 &1028934509
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2130,7 +2131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 327ed401c357c5a43927e35235d20a7c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1a36871719a7bc4f84837f5478037ef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
