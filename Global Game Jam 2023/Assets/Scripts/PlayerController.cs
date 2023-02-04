@@ -1,22 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     
     [SerializeField] public GameObject buildingManager;
     [SerializeField] public MapSystem map;
+    [SerializeField] public GameObject mapObj;
+    [SerializeField] public GameObject buildingManagerObj;
     [SerializeField] BuildingSystem buildingSystem;
     bool placementTileAllowed = false;
     bool placementTileTypeAllowed = false;
-
+    int y;
+    int x;
     public void LateUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            int y = Mathf.RoundToInt(transform.position.x);
-            int x = Mathf.RoundToInt(transform.position.y);
+            y = Mathf.RoundToInt(transform.position.x);
+            x = Mathf.RoundToInt(transform.position.y);
             int id = (y * map.mapY) + x;
 
             if (buildingSystem.ActiveRule.allTilesAllowed)
@@ -56,9 +60,18 @@ public class PlayerController : MonoBehaviour
                 {
                     GameObject newBuidling = Instantiate(buildingSystem.SelectedBuilding, new Vector3(y, x, 0), Quaternion.identity, buildingManager.transform);
                     newBuidling.name = $"{buildingSystem.SelectedBuilding.name}";/*: X{x}Y{y}*/
+                    newBuidling.GetComponent<Building>().id = id;
 
                     map.MapTiles[id].GetComponent<GameTile>().BuildingSlot = newBuidling;
                     buildingSystem.ActiveRule.Rule();
+
+                    if (buildingSystem.ActiveRule.recursive)
+                    {
+                        //Debug.Log(map.MapTiles[id].GetComponent<Building>());
+                        //map.MapTiles[id].GetComponent<Building>().CheckNeighbours();
+                       
+                    }
+                    
                 }
                 Debug.Log("allowed");
                 placementTileAllowed = false;
@@ -69,23 +82,11 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("fuck you Baltimore");
             }
            
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                if (buildingSystem.ActiveRule.rotatable)
-                {
-                    if (buildingSystem.ActiveRule.rotation < 4)
-                    {
-                        buildingSystem.ActiveRule.rotation++;
-                    }
-                    else
-                    {
-                        buildingSystem.ActiveRule.rotation = 0;
-                    }
-                }
-            }
+            
            
         }
     }
+
 
     
 }

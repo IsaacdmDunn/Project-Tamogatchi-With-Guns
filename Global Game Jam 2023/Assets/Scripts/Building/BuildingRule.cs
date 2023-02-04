@@ -11,6 +11,7 @@ public class BuildingRule : ScriptableObject
     [SerializeField] public List<int> tilesAllowed = new List<int>();
     [SerializeField] public bool allTilesAllowed = false;
     [SerializeField] public bool rotatable = false;
+    [SerializeField] public bool recursive = false;
 
     [SerializeField] public int rotation = 0; //0=left, 1=right, 2=down, 3=up 
 

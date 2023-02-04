@@ -11,11 +11,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] float zoomMin;
     [SerializeField] float zoomMax;
     [SerializeField] MapSystem map;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

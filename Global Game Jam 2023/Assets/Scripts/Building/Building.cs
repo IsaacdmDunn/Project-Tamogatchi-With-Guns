@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    //list of rules
+    public bool left, right, up, down = false;
+    public int id;
+    [SerializeField] Sprite[] sprite;
+    [SerializeField] bool spriteAffectedByNeighbours = false;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        if (spriteAffectedByNeighbours)
+        {
+            CheckNeighbours();
+        }
         
     }
 
@@ -17,5 +24,124 @@ public class Building : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CheckNeighbours()
+    {
+
+        if (this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id - this.gameObject.GetComponentInParent<BuildingSystem>().player.map.mapY].GetComponent<GameTile>().BuildingSlot != null)
+        {
+            left = true;
+            this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id - this.gameObject.GetComponentInParent<BuildingSystem>().player.map.mapY].GetComponent<GameTile>().BuildingSlot.GetComponent<Building>().right = true;
+            this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id - this.gameObject.GetComponentInParent<BuildingSystem>().player.map.mapY].GetComponent<GameTile>().BuildingSlot.GetComponent<Building>().ChangeSprite();
+        }
+        else
+        {
+            left = false;
+        }
+
+        if (this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id + this.gameObject.GetComponentInParent<BuildingSystem>().player.map.mapY].GetComponent<GameTile>().BuildingSlot != null)
+        {
+            right = true;
+            this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id + this.gameObject.GetComponentInParent<BuildingSystem>().player.map.mapY].GetComponent<GameTile>().BuildingSlot.GetComponent<Building>().left = true;
+            this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id + this.gameObject.GetComponentInParent<BuildingSystem>().player.map.mapY].GetComponent<GameTile>().BuildingSlot.GetComponent<Building>().ChangeSprite();
+        }
+        else
+        {
+            right = false;
+        }
+
+        if (this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id - 1].GetComponent<GameTile>().BuildingSlot != null)
+        {
+            down = true;
+            this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id - 1].GetComponent<GameTile>().BuildingSlot.GetComponent<Building>().up = true;
+            this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id - 1].GetComponent<GameTile>().BuildingSlot.GetComponent<Building>().ChangeSprite();
+        }
+        else
+        {
+            down = false;
+        }
+
+        if (this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id + 1].GetComponent<GameTile>().BuildingSlot != null)
+        {
+            up = true;
+            this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id + 1].GetComponent<GameTile>().BuildingSlot.GetComponent<Building>().down = true;
+            this.gameObject.GetComponentInParent<BuildingSystem>().player.map.MapTiles[id + 1].GetComponent<GameTile>().BuildingSlot.GetComponent<Building>().ChangeSprite();
+        }
+        else
+        {
+            up = false;
+        }
+
+        ChangeSprite();
+
+
+
+       
+    }
+
+    public void ChangeSprite()
+    {
+        if (spriteAffectedByNeighbours)
+        {
+            if (left && right && up && down)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[7];
+                gameObject.transform.Rotate(0, 0, 0f);
+            }
+            else if (left && up && down)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[6];
+                gameObject.transform.Rotate(0, 0, 90f);
+            }
+            else if (left && up && down)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[6];
+                gameObject.transform.Rotate(0, 0, -90);
+            }
+            else if (left && right && down)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[6];
+                gameObject.transform.Rotate(0, 0, 180f);
+            }
+            else if (left && right && up)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[6];
+                gameObject.transform.Rotate(0, 0, 0f);
+            }
+
+            else if (up && down)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[4];
+                gameObject.transform.Rotate(0, 0, 0f);
+            }
+            else if (left && right)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[5];
+                gameObject.transform.Rotate(0, 0, 0f);
+            }
+
+            else if (left)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[3];
+                gameObject.transform.Rotate(0, 0, 0f);
+            }
+            else if (right)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[2];
+                gameObject.transform.Rotate(0, 0, 0f);
+            }
+            else if (up)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[1];
+                gameObject.transform.Rotate(0, 0, 0f);
+            }
+            else if (down)
+            {
+                Debug.Log(sprite.Length);
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite[0];
+                gameObject.transform.Rotate(0, 0, 0f);
+            }
+        }
     }
 }
