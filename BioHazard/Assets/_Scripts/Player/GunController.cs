@@ -38,15 +38,31 @@ public class GunController : MonoBehaviour
         {
             StartReload();
         }
-        if (Input.GetKey(KeyCode.Mouse0) && timeBetweenShot>fireRate && bulletsLeft > 0 && state==GunState.none)
+        if (autoFire == true)
         {
-            for (int i = 0; i < bulletsPerTap; i++)
+            if (Input.GetKey(KeyCode.Mouse0) && timeBetweenShot > fireRate && bulletsLeft > 0 && state == GunState.none)
             {
-                Shoot();
-                
+                for (int i = 0; i < bulletsPerTap; i++)
+                {
+                    Shoot();
+
+                }
+                state = GunState.none;
             }
-            state = GunState.none;
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && timeBetweenShot > fireRate && bulletsLeft > 0 && state == GunState.none)
+            {
+                for (int i = 0; i < bulletsPerTap; i++)
+                {
+                    Shoot();
+
+                }
+                state = GunState.none;
+            }
+        }
+        
 
         if (Input.GetKeyDown(KeyCode.R) && state != GunState.reloading && totalBullets > 0 && bulletsLeft < magSize)
         {
@@ -109,7 +125,7 @@ public class GunController : MonoBehaviour
         state = GunState.shooting;
         Instantiate(Projectile, BulletOrigin.position, BulletOrigin.rotation);
         timeBetweenShot = 0;
-        bulletsLeft -= bulletsPerTap;
+        bulletsLeft -= 1;
 
 
         BulletOrigin.transform.rotation = tempRotation;

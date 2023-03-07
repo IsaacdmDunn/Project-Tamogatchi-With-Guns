@@ -570,7 +570,6 @@ GameObject:
   - component: {fileID: 5144825567376931933}
   - component: {fileID: 385941600120132170}
   - component: {fileID: 6672604444904881721}
-  - component: {fileID: 2136597737985908526}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -641,19 +640,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2136597737985908526
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7689664182136176774}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8354379050025243690
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   fireRate: 0.1
-  spread: 6.37
+  spread: 3.1
   reloadTime: 3.23
   magSize: 50
   bulletsPerTap: 1

@@ -23,6 +23,17 @@ public class Projectile : MonoBehaviour
         }
         GetComponent<Rigidbody>().velocity = transform.forward * 25;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            Debug.Log(other.tag);
+            Destroy(this.gameObject);
+        }
+        
+    }
+
+  
 
 
 }
