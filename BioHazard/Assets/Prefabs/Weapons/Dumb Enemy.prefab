@@ -148,3 +148,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  bloodEffectPrefab: {fileID: 820867865707017386, guid: 03bda898e8425bb4285b1090e6b18757, type: 3}
+  deathEffectPrefab: {fileID: 820867865707017386, guid: d837b58e19d3d9b4e93c5fd7546d3e90, type: 3}

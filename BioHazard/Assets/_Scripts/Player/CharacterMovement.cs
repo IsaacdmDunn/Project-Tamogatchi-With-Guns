@@ -13,11 +13,16 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] bool canWallJump;
     [SerializeField] int wallJumps = 0;
     [SerializeField] float speed = 12f;
+    [SerializeField] float wallDropDampener = 12f;
+    float wallRunAngle = 0f;
+    [SerializeField] float wallRunAngleOffset = 0f;
     [SerializeField] float sprintMod = 1.25f;
     [SerializeField] float jump = 12f;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] Vector3 velocity;
     Vector3 move;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +77,9 @@ public class CharacterMovement : MonoBehaviour
         {
             controller.Move(move * speed * Time.deltaTime);
         }
+
+
+        
     }
 
     //checks if player is on ground
@@ -79,17 +87,38 @@ public class CharacterMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && canWallJump && velocity.y < 0)
         {
-            velocity.y = -2f;
-            wallJumps = 0;
+            velocity.y = 0f;
+            //wallJumps = 0;
+        }
+
+        if (canWallJump == true)
+        {
+            velocity.y = -wallDropDampener;
         }
     }
+
+    void SetWallRunAngle()
+    {
+        //get wall angle and direction running on wall
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Wall")
         {
+           
             canWallJump = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            wallRunAngle = 0f;
+            canWallJump = false;
         }
     }
 }

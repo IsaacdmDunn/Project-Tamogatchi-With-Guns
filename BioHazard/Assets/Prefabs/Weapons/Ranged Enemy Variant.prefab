@@ -61,6 +61,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged Enemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9127481777872033854, guid: 6cac0efe92c9ade4682d1bc556112e1f, type: 3}
+      propertyPath: bloodEffect
+      value: 
+      objectReference: {fileID: 820867865707017386, guid: 03bda898e8425bb4285b1090e6b18757, type: 3}
     - target: {fileID: 9127481777872033855, guid: 6cac0efe92c9ade4682d1bc556112e1f, type: 3}
       propertyPath: m_AngularSpeed
       value: 120
