@@ -27,7 +27,6 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Ground")
         {
-            Debug.Log(other.tag);
             Destroy(this.gameObject);
         }
         
